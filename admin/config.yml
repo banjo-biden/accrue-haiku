@@ -2,8 +2,8 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "src/images"
-public_folder: "/src/images"
+media_folder: "src/images/uploads"
+public_folder: "/src/images/uploads"
 
 collections:
   - name: "haiku"
