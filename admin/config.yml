@@ -1,9 +1,6 @@
 backend:
-  name: github
-  repo: banjo-biden/accrue-haiku
+  name: git-gateway
   branch: main
-  auth_scope: repo
-  client_id: Ov23liZBGD2FFAiB09Zz
 
 media_folder: "src/images/uploads"
 public_folder: "/src/images/uploads"
