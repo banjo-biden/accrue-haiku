@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="/src/styles.css">
+</head>
+<body>
+  <nav class="menu">
+    <button id="menuToggle" class="menu-icon">☰</button>
+    <ul id="menuList" class="menu-items">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/links/">Links</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <script>
+    const menuButton = document.getElementById("menuToggle");
+    const menuList = document.getElementById("menuList");
+
+    menuButton.addEventListener("click", () => {
+      menuList.classList.toggle("show");
+
+      if (!menuList.classList.contains("show")) {
+        menuList.querySelectorAll("li").forEach(li => {
+          li.style.animation = "none";
+          li.offsetHeight;
+          li.style.animation = "";
+        });
+      }
+    });
+
+    menuList.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        menuList.classList.remove("show");
+      });
+    });
+  </script>
+</body>
+</html>

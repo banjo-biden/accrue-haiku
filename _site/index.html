@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>A little something for you:</title>
+  <link rel="stylesheet" href="/src/styles.css">
+</head>
+<body>
+    <nav class="menu">
+        <button id="menuToggle" class="menu-icon">☰</button>
+        <ul id="menuList" class="menu-items">
+            <li><a href="/">Home</a></li>
+            <li><a href="https://jdiswriting.com" target="_blank" rel="noopener noreferrer">Blog</a></li>
+            <li><a href="/about/">About</a></li>
+
+    </ul>
+    </nav>
+  <main>
+
+    <article>
+      <h2>A Little Test</h2>
+      <pre><p>Testing the waters<br>
+Of a new project from old;<br>
+I'll recreate it.</p>
+</pre>
+      <small>- JD</small>
+    </article>
+
+    <form onsubmit="fadeOut(event)">
+      <button type="submit"><b>Another</b></button>
+    </form>
+    
+    <script>
+        function fadeOut(e) {
+            e.preventDefault();
+            document.querySelector("main").classList.add("fade-out");
+            setTimeout(() => {
+                window.location.reload();
+            }, 400);
+        }
+    </script>
+  </main>
+</body>
+</html>
+
+<script>
+  const menuButton = document.getElementById("menuToggle");
+  const menuList = document.getElementById("menuList");
+
+  menuButton.addEventListener("click", () => {
+    menuList.classList.toggle("show");
+  });
+
+  // Optional: close menu when clicking a link
+  menuList.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      menuList.classList.remove("show");
+    });
+  });
+</script>
+
+<script>
+  // Fade-out on button click
+  function fadeOut(e) {
+    e.preventDefault();
+    const main = document.querySelector("main");
+    main.classList.remove("fade-in");
+    main.classList.add("fade-out");
+    setTimeout(() => {
+      window.location.reload();
+    }, 400);
+  }
+
+  // Fade-in on page load
+  window.addEventListener("DOMContentLoaded", () => {
+    document.querySelector("main").classList.add("fade-in");
+  });
+</script>

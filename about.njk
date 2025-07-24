@@ -1,0 +1,69 @@
+---
+title: About
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Haiku Accrue</title>
+  <link rel="stylesheet" href="/src/styles.css">
+</head>
+<body>
+    <nav class="menu">
+        <button id="menuToggle" class="menu-icon">☰</button>
+        <ul id="menuList" class="menu-items">
+            <li><a href="/">Home</a></li>
+            <li><a href="https://jdiswriting.com" target="_blank" rel="noopener noreferrer">Blog</a></li>
+            <li><a href="/about/">About</a></li>
+
+    </ul>
+    </nav>
+    <main>
+    <h1>A little about this site:</h1>
+
+    <p>
+    Thank you for being here.<br>
+    Clicking the "Another" button on the main page will pull a random haiku from my repository.<br>
+    Feel free to stay as long as you'd like, and browse inside my mind.
+    </p>
+
+    <h1>A little about me:</h1>
+
+    <p>
+    My name is JD, and this is my space where I can express myself through the art of haiku poetry.<br><br>
+    I try to update this site weekly, if not more often, with new haiku, and keep a field notebook with me 
+    in order to make sure I do not lose them to time.<br><br>
+    You can find my blog, where I post my thoughts on everything from spirituality, to music, to art, and what I am reading,
+    over <a href="https://jdiswriting.com" target="_blank" rel="noopener noreferrer">here</a>.<br>
+    My artwork is for sale <a href="https://jdtheprintmaker.etsy.com" target="_blank" rel="noopener noreferrer">here</a> as well.
+    </p>
+
+    <h3>Please enjoy your stay,</h3>
+    <p><i>-JD</i></p>
+     <script>
+        function fadeOut(e) {
+            e.preventDefault();
+            document.querySelector("main").classList.add("fade-out");
+            setTimeout(() => {
+                window.location.reload();
+            }, 400);
+        }
+    </script>
+  </main>
+</body>
+</html>
+
+<script>
+  const menuButton = document.getElementById("menuToggle");
+  const menuList = document.getElementById("menuList");
+
+  menuButton.addEventListener("click", () => {
+    menuList.classList.toggle("show");
+  });
+
+  // Optional: close menu when clicking a link
+  menuList.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      menuList.classList.remove("show");
+    });
+  });
+</script>
