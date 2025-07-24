@@ -24,15 +24,20 @@ permalink: "/"
     </ul>
     </nav>
   <main>
-
-    <article>
-      <h2>{{ haiku.data.title }}</h2>
-      <pre>{{ haiku.templateContent | safe }}</pre>
-      <small>- {{ haiku.data.author }}</small>
-    </article>
+    {% set haikuList = collections.haiku | shuffle %}
+    {% set randomHaiku = haikuList[0] %}
+    <div class="haiku-box">
+    <h1 class="title">{{ randomHaiku.data.title }}</h1>
+     <p class="haiku-content">
+     {{ randomHaiku.templateContent | safe }}
+    </p>
+    {% if randomHaiku.data.author %}
+      <p class="author">– {{ randomHaiku.data.author }}</p>
+     {% endif %}
+    </div>
 
     <form onsubmit="fadeOut(event)">
-      <button type="submit"><b>Another</b></button>
+      <button onclick="window.location.reload()" class="another-button">Another</button>
     </form>
     
     <script>
