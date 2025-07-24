@@ -45,6 +45,20 @@ permalink: "/"
         }
     </script>
   </main>
+  <script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get("confirmation_token")) {
+          // Redirect to admin if token is in URL
+          window.location.href = "/admin/";
+        }
+      }
+    });
+    window.netlifyIdentity.init();
+  }
+</script>
 </body>
 </html>
 
